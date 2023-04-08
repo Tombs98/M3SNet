@@ -2,25 +2,40 @@
 
 # Mixed Hierarchy Network for Image Restoration
 
-[![paper](https://img.shields.io/badge/arXiv-Paper-brightgreen)](http://arxiv.org/abs/2302.09554)
+<!-- [![paper](https://img.shields.io/badge/arXiv-Paper-brightgreen)](http://arxiv.org/abs/2302.09554) -->
 <hr />
 
 
-> **Abstract:** * Image restoration is a long-standing low-level vision problem, e.g., deblurring and deraining. In the process of image restoration, it is necessary to consider not only the spatial details and contextual information of restoration to ensure the quality, but also the system complexity. Although many methods have been able to guarantee the quality of image restoration, the system complexity of the state-of-the-art (SOTA) methods is increasing as well. Motivated by this, we present a mixed hierarchy network that can balance these competing goals. Our main proposal is a mixed hierarchy architecture, that progressively recovers contextual information and spatial details from degraded images while we design intra-blocks to reduce system complexity. Specifically, our model first learns the contextual information using encoder-decoder architectures, and then combines them with high-resolution branches that preserve spatial detail. In order to reduce the system complexity of this architecture for convenient analysis and comparison, we replace or remove the nonlinear activation function with multiplication and use a simple network structure.  In addition, we replace spatial convolution with global self-attention for the middle block of encoder-decoder. The resulting tightly interlinked hierarchy architecture, named as MHNet, delivers strong performance gains on several image restoration tasks, including image deraining, and deblurring.* 
+> **Abstract:** * Image restoration is the task of aiming to obtain the high quality image from a corrupt input image, such as deblurring and
+deraining. In the process of image restoration, it is typically necessary to maintain a complex balance between spatial details and
+contextual information. Although multi-stage network can optimally
+balance these competing goals and achieve significant performance,
+this also increases the complexity of the system. In this paper, we
+propose a mountain shaped single-stage design base on a simple UNet architecture, which removes or replaces unnecessary nonlinear
+activation functions to achieve the above balance with low system
+complexity. Specifically, we propose a feature fusion middleware
+(FFM) mechanism as an information exchange component between
+the encoder-decoder architectural levels. It seamlessly integrates upper layer information into the adjacent lower layer, proceeding sequentially down to the lowest layer. Finally, all information is fused
+into the original image resolution manipulation level. This preserves
+spatial details and integrates contextual information, ensuring high quality image restoration. In addition, we propose a multi-head attention middle block (MHAMB) as a bridge between the encoder and
+decoder to capture more global information and surpass the limitations of the receptive field of CNNs. Extensive experiments demonstrate that our approach, named as M3SNet, outperforms previous
+state-of-the-art models while using less than half the computational
+costs, for several image restoration tasks, such as image deraining
+and deblurring.* 
 
 ## Network Architecture
 <table>
   <tr>
-    <td align="center"> <img  src = "./fig/network.png" width="500"> </td>
+    <td align="center"> <img  src = "./fig/network2.png" width="500"> </td>
   </tr>
   <tr>
-    <td><p align="center"><b>Overall Framework of MHNet</b></p></td>
+    <td><p align="center"><b>Overall Framework of M3SNet</b></p></td>
   </tr>
     <tr>
-    <td align="center"> <img   src = "./fig/dau.png" width="500"> </td>
+    <td align="center"> <img   src = "./fig/conponent4.png" width="500"> </td>
   </tr>
   <tr>
-    <td><p align="center"><b>Dual attention</b></p></td>
+    <td><p align="center"><b>(a) Feature fusion midddleware (FFM) that enables the exchange of information across multiple scales while preserving the fine details. (b) The architecture of nonlinear activation free block (NAFBlock). (c) Simplified Channel Attention (SCA). (d) Multi-head attention middle block (MHAMB) that  capture more global information.</b></p></td>
 </table>
 
 ## Installation
@@ -42,7 +57,7 @@ cd pytorch-gradual-warmup-lr; python setup.py install; cd ..
 
 ## Quick Run
 
-To test the pre-trained models of [Deblurring](https://drive.google.com/file/d/1JJUwbH5cYEaTvtQ8jGF406ZKfDqXyNFD/view?usp=share_link), [Deraining](https://drive.google.com/file/d/1nGwHL2wBnYbE_yxH6WxvpTM_pm0ggyvW/view?usp=share_link)
+To test the pre-trained models of [pre-trained](https://drive.google.com/drive/folders/1y4BEX7LagtXVO98ZItSbJJl7WWM3gnbD?usp=share_link)
 
 
 ## Training and Evaluation
@@ -53,19 +68,13 @@ Training and Testing codes for deblurring and deraining  are provided in their r
 
 
 <details>
-  <summary> <strong>Image Deblurring</strong> (click to expand) </summary>
+  <summary> <strong>Result</strong> (click to expand) </summary>
 <table>
   <tr>
-    <td> <img src = "./fig/derain.png" width="450"> </td>
-  </tr>
-  <tr>
-    <td><p align="center"><b>Deblurring on GoPro and HIDE Datasets.</b></p></td>
+    <td> <img src = "./fig/result.png" width="450"> </td>
   </tr>
 </table></details>
 
-<details>
-  <summary> <strong>Image Deraining</strong> (click to expand) </summary>
-<img src = "./fig/deblur.png" width="900"></details>
 
  
 
