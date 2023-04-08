@@ -71,7 +71,7 @@ Training and Testing codes for deblurring and deraining  are provided in their r
   <summary> <strong>Result</strong> (click to expand) </summary>
 <table>
   <tr>
-    <td> <img src = "./fig/result.png" width="450"> </td>
+    <td> <img src = "./fig/result.png" width="500"> </td>
   </tr>
 </table></details>
 
