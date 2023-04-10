@@ -8,13 +8,13 @@ GPU: [0,1]
 VERBOSE: True
 
 MODEL:
-  MODE: 'Deblurring'
+  MODE: 'Deraining'
   SESSION: 'M3SNet'
 
 # Optimization arguments.
 OPTIM:
   BATCH_SIZE: 32
-  NUM_EPOCHS: 8000
+  NUM_EPOCHS: 95000000
   # NEPOCH_DECAY: [10]
   LR_INITIAL: 1e-3
   LR_MIN: 1e-6
