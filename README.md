@@ -76,7 +76,17 @@ Training and Testing codes for deblurring and deraining  are provided in their r
 </table></details>
 
 
- 
+ ## Citations
+If our code helps your research or work, please consider citing our paper.
+The following is a BibTeX reference:
+
+```
+@article{Gao2023AMS,
+  title={A Mountain-Shaped Single-Stage Network for Accurate Image Restoration},
+  author={Hu Gao and Jing Yang and Ying Zhang and Ning Wang and Jingfan Yang and Depeng Dang},
+  journal={arXiv preprint arXiv:2305.05146},
+  year={2023}
+}
 
 
 
