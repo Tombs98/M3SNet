@@ -66,16 +66,10 @@ To test the pre-trained models of [pre-trained](https://drive.google.com/drive/f
 
 Training and Testing codes for deblurring and deraining  are provided in their respective directories.
 
-## Results
 
 
-<details>
-  <summary> <strong>Result</strong> (click to expand) </summary>
-<table>
-  <tr>
-    <td> <img src = "./fig/result.png" width="500"> </td>
-  </tr>
-</table></details>
+
+
 
 
 ## Citations
